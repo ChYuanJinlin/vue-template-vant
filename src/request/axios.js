@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-01 17:19:53
- * @LastEditTime: 2020-05-01 12:20:09
+ * @LastEditTime: 2021-01-18 11:53:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue-blog\src\request\axios.js
@@ -196,3 +196,6 @@ export default function ajax(url, data = {}, loadingOpt, method = 'get') {
 
 }
 
+['options', 'get', 'post', 'put', 'head', 'delete', 'trace', 'connect'].forEach((method) => {
+    ajax[method] = (url, data , loadingOpt) => ajax(url, data = {}, loadingOpt, method)
+});
